@@ -13,8 +13,5 @@ class SubCategorySerializer(serializers.ModelSerializer):
         model = SubCategory
         fields ='__all__'
     
-    def to_representation(self, instance):
-        rep = super(CategorySerializer, self).to_representation(instance)
-        rep['category'] = instance.category.category_name
-        return rep
+
 

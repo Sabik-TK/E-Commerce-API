@@ -9,10 +9,4 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields ='__all__'
         
-    # def to_representation(self, instance):
-    #     rep = super(JobSkillSerializer, self).to_representation(instance)
-    #     rep['job'] = f'{instance.job.company.company_name} - {instance.job.title}' 
-    #     rep['skill'] = instance.skill.name
-    #     return rep
-
    

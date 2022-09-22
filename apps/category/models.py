@@ -29,5 +29,5 @@ class SubCategory(models.Model):
 
    
     def __str__(self): 
-        return self.sub_category_name
+        return self.slug
 
