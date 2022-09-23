@@ -3,14 +3,11 @@ from apps.category.models import SubCategory
 # Create your models here.
 
 class Product(models.Model):
-    product_name    = models.CharField(max_length=200, unique=True)
-    slug            = models.SlugField(max_length=200, unique=True)
+    name            = models.CharField(max_length=200, unique=True)
     description     = models.TextField(max_length=2500, blank=True)
     price           = models.IntegerField()
-    mrp             = models.IntegerField(null= True, default= price)
-    img1            = models.ImageField(upload_to='photos/products')
-    img2            = models.ImageField(upload_to='photos/products')
-    img3            = models.ImageField(upload_to='photos/products')
+    mrp             = models.IntegerField(default= price,null=True)
+    thumbnail       = models.ImageField(upload_to='product/thumbnail')
     stock           = models.IntegerField()
     is_available    = models.BooleanField(default=True)
     category        = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
@@ -24,7 +21,13 @@ class Product(models.Model):
         return product_offer
  
     def __str__(self): 
-        return self.product_name
+        return self.name
+
+
+class ProductImages(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image   = models.ImageField(upload_to='product/extra_images')
+
 
    
 

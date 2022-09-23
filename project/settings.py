@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'drf_social_oauth2',
     'drf_yasg',
 
+    'phonenumber_field',
+
     'apps.accounts',
     'apps.product',
     'apps.category',
@@ -62,7 +64,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',

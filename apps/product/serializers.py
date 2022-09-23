@@ -8,5 +8,11 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields ='__all__'
+
+        extra_kwargs={
+            
+            'sold_quantity' :{'read_only':True},
+            'is_available'  :{'read_only' : True},
+            }
         
    
