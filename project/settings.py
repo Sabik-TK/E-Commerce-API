@@ -100,12 +100,28 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+USE_AWS_RDS = env.bool('USE_AWS_RDS',False)
+
+if USE_AWS_RDS:
+
+    DATABASES = {
+        'default': {
+        'ENGINE'   : env('ENGINE'),   
+        'NAME'     : env('NAME'),
+        'USER'     : env('USER'),
+        'PASSWORD' : env('PASSWORD'),
+        'HOST'     : env('HOST'),
+        'PORT'     : env('PORT'),
+        }
     }
-}
+else:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 

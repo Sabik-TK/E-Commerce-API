@@ -15,4 +15,11 @@ class ProductSerializer(serializers.ModelSerializer):
             'is_available'  :{'read_only' : True},
             }
         
+class ProductListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Product
+        fields = ('url','name', 'price', 'thumbnail')
+
+   
    

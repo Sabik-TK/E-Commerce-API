@@ -1,5 +1,5 @@
 from django.db import models
-from apps.category.models import SubCategory
+from apps.category.models import Category
 # Create your models here.
 
 class Product(models.Model):
@@ -10,7 +10,7 @@ class Product(models.Model):
     thumbnail       = models.ImageField(upload_to='product/thumbnail')
     stock           = models.IntegerField()
     is_available    = models.BooleanField(default=True)
-    category        = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    category        = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     sold_quantity   = models.IntegerField(default=0)
     created_date    = models.DateTimeField(auto_now_add=True)
     modified_date   = models.DateTimeField(auto_now=True)
